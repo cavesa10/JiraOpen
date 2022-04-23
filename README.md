@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jira open
 
-## Getting Started
+## Instalación básica de Material UI
 
-First, run the development server:
+- Instalar Material UI `npm install @mui/material @emotion/react @emotion/styled`, instalar Material icon `npm install @mui/icons-material`.
 
-```bash
-npm run dev
-# or
-yarn dev
+- Creamos el archivo `src/pages/_document.tsx` usamos el snippet `nextdocument` en la etiquita:
+
+```js
+<Head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</Head>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- En el archivo `pages/_app.tsx` configuramos el cssBasic
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```js
+export const lightTheme = createTheme({
+  palette:{
+    mode: 'light',
+    background: {
+      default: grey[300],
+    },
+    primary:{
+      main: '#4a148c',
+    },
+    secondary:{
+      main: '#19857b',
+    },
+    error:{
+      main: red.A400,
+    }
+  },
+  components:{
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  }
+})
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={lightTheme} >
+      <CssBaseline />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
+}
+```
