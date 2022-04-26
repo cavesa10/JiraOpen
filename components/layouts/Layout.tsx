@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import Head from 'next/head'
 import React, { FC } from 'react'
-import { Navbar } from '../ui'
+import { Navbar, Sidebar } from '../ui'
 
 interface Props {
   children: React.ReactNode,
@@ -15,7 +15,7 @@ export const Layout:FC<Props> = ({title="Jira Open",children}) => {
         <title>{title}</title>
       </Head>
       <Navbar></Navbar>
-      {/* SideBar */}
+      <Sidebar></Sidebar>
 
       <Box sx={{ padding:'10px 20px' }} >
         {children}
