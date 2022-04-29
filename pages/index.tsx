@@ -4,6 +4,7 @@ import { Layout } from "../components/layouts";
 import { EntryList, NewEntry } from "../components/ui";
 
 const Home: NextPage = () => {
+  // console.log(process.env.NEXT_PUBLIC_CLIENT_KEY);
   return (
     <Layout title="Home - JiraOpen">
       <Grid container spacing={2}>

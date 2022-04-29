@@ -21,7 +21,7 @@ export const EntryList:FC<Props> = ({status}) => {
 
   const onDropEntry = (event:DragEvent<HTMLDivElement>) => {
     const id = event.dataTransfer.getData("entryId");
-    console.log(id,'id',status)
+    // console.log(id,'id',status)
     const entry = entries.find(entry => entry._id === id)!;
     updateEntry({...entry, status: status});
     endDragging();
