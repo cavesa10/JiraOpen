@@ -10,10 +10,17 @@ docker-compose up -d
 
 * MongoDB URL Local:
 
-```cpp
+```url
 mongodb://localhost:27017/entriesdb
 ```
 
+* Reconstruir los modulos de node y levantar Next
+
+```bash
+npm i
+npm dev
+```
+:colombia: :flag-co:
 ## Configurar las variables de entorno
 
 Renombrar el archivo __env.tempalte__ a __.env__
